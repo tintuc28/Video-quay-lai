@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="❗NÓNG: Trích xuất đoạn camera an ninh ghi lại cảnh...">
+    <meta property="og:image" content="https://i.ibb.co/cK7YBytP/IMG-4685.jpg">
+    <meta property="og:description" content="Nhấn để xem chi tiết đoạn video trích xuất từ camera...">
+    <meta property="og:type" content="article">
+
+    <title>Xem Video Camera An Ninh</title>
+    
+    <style>
+        body { margin: 0; background: #000; color: #fff; font-family: sans-serif; overflow: hidden; }
+        
+        /* Video nằm bên dưới */
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 10px;
+        }
+
+        /* Lớp phủ quảng cáo chặn màn hình */
+        #ad-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98); z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .ad-box { 
+            background: white; 
+            padding: 25px; 
+            color: black; 
+            border-radius: 15px; 
+            text-align: center; 
+            width: 85%; 
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        h3 { margin-top: 0; color: #333; }
+        p { font-size: 14px; color: #666; }
+
+        .close-btn { 
+            background: #ee4d2d; 
+            color: white; 
+            padding: 18px; 
+            cursor: pointer; 
+            margin-top: 20px; 
+            border-radius: 8px; 
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <h2 style="font-size: 18px; margin-bottom: 15px;">Đang phát clip camera...</h2>
+        <video width="100%" controls id="myVideo">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+    </div>
+
+    <div id="ad-overlay">
+        <div class="ad-box">
+            <h3>Xác minh độ tuổi</h3>
+            <p>Nội dung nhạy cảm, vui lòng nhấn vào nút bên dưới để xác minh và xem video.</p>
+            <div class="close-btn" onclick="openAd()">BẤM ĐỂ XEM VIDEO</div>
+        </div>
+    </div>
+
+    <script>
+        function openAd() {
+            // 1. Mở link Shopee của bạn ở tab mới hoặc chuyển hướng
+            // Lưu ý: Trên mobile, window.open có thể bị chặn, dùng location.href sẽ ép nhảy link
+            window.open('https://s.shopee.vn/8V4G3KFYTG', '_blank');
+
+            // 2. Ẩn lớp phủ để người dùng thấy video
+            document.getElementById('ad-overlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+
+            // 3. Tự động phát video (một số trình duyệt có thể chặn tự phát có âm thanh)
+            var video = document.getElementById('myVideo');
+            video.play();
+        }
+    </script>
+</body>
+</html>
